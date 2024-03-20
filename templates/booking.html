@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Integrated HTML, CSS, JS</title>
+  <style>
+    /* Your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #confirmation-message {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Book Your Ticket</h1>
+    <form id="booking-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="ph num">ph num:</label>
+      <input type="ph num" id="ph num" required>
+
+      <label for="ticket-type">Ticket Type:</label>
+      <select id="ticket-type" required>
+        <option value="standard">Standard</option>
+        <option value="vip">VIP</option>
+        <option value="premium">Premium</option>
+      </select>
+
+<button>
+  <a href="{{ url_for('booknow') }}">booknow</a>
+</button>     
+    </form>
+
+    <div id="confirmation-message"></div>
+  </div>
+
+  <script>
+    function bookTicket() {
+      const name = document.getElementById('name').value;
+      const phnum = document.getElementById('ph num').value;
+      const ticketType = document.getElementById('ticket-type').value;
+
+      // Here you can implement additional logic like sending data to the server, etc.
+      // For simplicity, let's just display a confirmation message on the page.
+
+      const confirmationMessage = document.getElementById('confirmation-message');
+      confirmationMessage.innerHTML = `
+        <p>Thank you, ${name}! Your ${ticketType.toUpperCase()} ticket has been booked.</p>
+        <p>A confirmation email has been sent to ${email}.</p>
+      `;
+    }
+  </script>
+</body>
+</html>
